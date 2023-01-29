@@ -1,0 +1,63 @@
+﻿@using recep_ayyildiz.Entities;
+@model List<PersonalLogViewDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+@*<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Kayıt Ekleme</h5>
+        @using (Html.BeginForm("AddLog", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="exampleInputEmail1">Personal ID</label>
+                <input type="number" class="form-control" id="personalid" placeholder="Personal ID">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Durum</label>
+                <input type="number" class="form-control" id="state" placeholder="Durum">
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        }
+    </div>
+</div>*@
+
+<div id="table-container">
+    <table class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Personal ID</th>
+                <th scope="col">Durum</th>
+                <th scope="col">Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int count = 1;
+
+                foreach (var item in @Model)
+                {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td>@item.PersonalID</td>
+                        <td>@item.State</td>
+                        <td>@item.Date</td>
+                    </tr>
+                    count ++;
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
